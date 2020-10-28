@@ -1,0 +1,47 @@
+---
+spring:
+  profiles:
+    active: dev
+  application:
+    name: sentinelDashboard
+  cloud:
+    config:
+      enabled: true
+---
+spring:
+  profiles: local
+  cloud:
+    config:
+      profile: local
+      uri: http://39.105.243.180:8888
+---
+spring:
+  profiles: dev
+  cloud:
+    config:
+      profile: dev
+      uri: http://39.105.243.180:8888
+
+---
+spring:
+  profiles: prerelease
+  cloud:
+    config:
+      profile: prerelease
+      uri: http://39.97.2.150:8888
+
+---
+spring:
+  profiles: test
+  cloud:
+    config:
+      profile: test
+      uri: http://172.17.203.46:8280
+
+---
+spring:
+  profiles: idc
+  cloud:
+    config:
+      profile: idc
+      uri: http://39.97.2.150:8888

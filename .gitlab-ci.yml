@@ -1,0 +1,15 @@
+#生产docker镜像，并上传到阿里云镜像服务
+stages:
+  - build
+
+job_build:
+  stage: build
+  only:
+    - dev
+  script:
+    - sudo mvn package -DskipTests docker:build
+    - date=`date +%Y-%m-%d-%H-%M`
+    - id=`sudo docker images|grep 'springio/sentinel-dashboard'|grep latest|awk '{print $3}'`
+    - sudo docker tag $id registry.cn-beijing.aliyuncs.com/pc-shop/sentinel-dashboard:sentinel-dashboard-dev
+    - sudo docker push registry.cn-beijing.aliyuncs.com/pc-shop/sentinel-dashboard:sentinel-dashboard-dev
+    - sudo chown -R gitlab-runner:gitlab-runner *
