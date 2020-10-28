@@ -35,10 +35,8 @@ import java.util.Set;
  * @project: xxx
  * @description: 客户端在启动时初始化Redis中规则
  * @version 1.0.0
- * @errorcode
- *            错误码: 错误描述
- * @author
- *         <li>2020-07-17 guopengfei@bobfintech.com.cn Create 1.0
+ * @errorcode 错误码: 错误描述
+ * @author xiehui
  * @copyright ©2019-2020 xxxx，版权所有。
  */
 @Component
